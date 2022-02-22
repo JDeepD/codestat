@@ -1,21 +1,10 @@
 #include "include/ProcessData.h"
-#include "include/ListFiles.h"
 
-std::map<std::string, int> filedata(std::string dir){
-	std::map<std::string, int> data;
-	
-	const std::filesystem::path ROOTDIR {dir};
-
-	for (std::filesystem::path const& filent : std::filesystem::recursive_directory_iterator{ROOTDIR}) {
-		if (std::filesystem::is_regular_file(filent)) {
-			data[filent.extension().string()] += std::filesystem::file_size(filent);
-		}
-	}
-
-	return data;
-}
-
-
+/*
+ * This function processes the data such that the size of the file
+ * is the % of the total size of all the files.
+ * Returns a map<string, float>
+ */
 std::map<std::string, float> process(std::map<std::string, int>& data)
 {
 	std::map<std::string, float> processed_data;
@@ -29,15 +18,4 @@ std::map<std::string, float> process(std::map<std::string, int>& data)
 	}
 
 	return processed_data;
-
-}
-
-int main()
-{
-	std::map<std::string, int> mp = filedata(".");
-	std::map<std::string, float> mp2 = process(mp);
-
-	for (auto& elem : mp2) {
-		std::cout << elem.first << " "<< elem.second << "\n";
-	}
 }
