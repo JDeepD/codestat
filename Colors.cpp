@@ -13,6 +13,3 @@ std::string parse_rgb(std::string text, int red, int green, int blue){
 }
 
 
-int main(){
-	std::cout << parse_rgb("Hello World", 109, 91, 212) << "\n";
-}

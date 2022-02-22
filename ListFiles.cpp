@@ -26,13 +26,13 @@ std::vector<std::string> listfiles(std::string dir, std::vector<std::string> ign
 }
 
 
-int main()
-{
-	std::map<std::string, int> dat = filedata("../Open-Palm");
-	for(const auto& elem : dat){
-   		std::cout << elem.first << " " << elem.second << "\n";
-	}
-}
+/* int main() */
+/* { */
+/* 	std::map<std::string, int> dat = filedata("../Open-Palm"); */
+/* 	for(const auto& elem : dat){ */
+/*    		std::cout << elem.first << " " << elem.second << "\n"; */
+/* 	} */
+/* } */
 
 
 /*
